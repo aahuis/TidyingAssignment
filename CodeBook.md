@@ -1,6 +1,8 @@
 This is the code book for the tidy dataset created as part of the "Getting and cleaning data" Assignment.
 It describes the variables of the dataset and their possible values.
 
+For a description of the raw data set and its variables please see http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones and especially features_info.txt
+
 Dataset Name:         tidy_df
 Observations:         3160
 Variables:            11
