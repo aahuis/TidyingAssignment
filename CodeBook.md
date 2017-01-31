@@ -13,7 +13,7 @@ Variables:            11
 "Activity" :          Factor, possible values LAYING SITTING STANDING WALKING WALKING_DOWNSTAIRS WALKING_UPSTAIRS
       Each activity is a description of the type of physical activity performed during the measurement.
 
-"grouped_mean" :           Numeric
+"mean_grouped" :           Numeric
       Numbers representing the requested mean grouped by Subject and activity. 
 
 "dimension" :         String, possible values "X"   "Y"   "Z"   "ALL"
