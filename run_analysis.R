@@ -1,3 +1,6 @@
+library(tidyr)
+library(dplyr)
+
 #We will need descriptive activity names, so
 #read activity labels
 activity_labels <- read.table("activity_labels.txt")
@@ -113,12 +116,10 @@ write.csv(sir,"myargument.txt")
 #finally the new data set
 new_set <- smaller_data_set %>% group_by(Subject,Activity) %>% summarise(tBodyAcc_MEAN_X=mean(tBodyAcc_MEAN_X) , tBodyAcc_MEAN_Y =mean( tBodyAcc_MEAN_Y ) , tBodyAcc_MEAN_Z =mean( tBodyAcc_MEAN_Z ) , tBodyAcc_STD_X =mean( tBodyAcc_STD_X ) , tBodyAcc_STD_Y =mean( tBodyAcc_STD_Y ) , tBodyAcc_STD_Z =mean( tBodyAcc_STD_Z ) , tGravityAcc_MEAN_X =mean( tGravityAcc_MEAN_X ) , tGravityAcc_MEAN_Y =mean( tGravityAcc_MEAN_Y ) , tGravityAcc_MEAN_Z =mean( tGravityAcc_MEAN_Z ) , tGravityAcc_STD_X =mean( tGravityAcc_STD_X ) , tGravityAcc_STD_Y =mean( tGravityAcc_STD_Y ) , tGravityAcc_STD_Z =mean( tGravityAcc_STD_Z ) , tBodyAccJerk_MEAN_X =mean( tBodyAccJerk_MEAN_X ) , tBodyAccJerk_MEAN_Y =mean( tBodyAccJerk_MEAN_Y ) , tBodyAccJerk_MEAN_Z =mean( tBodyAccJerk_MEAN_Z ) , tBodyAccJerk_STD_X =mean( tBodyAccJerk_STD_X ) , tBodyAccJerk_STD_Y =mean( tBodyAccJerk_STD_Y ) , tBodyAccJerk_STD_Z =mean( tBodyAccJerk_STD_Z ) , tBodyGyro_MEAN_X =mean( tBodyGyro_MEAN_X ) , tBodyGyro_MEAN_Y =mean( tBodyGyro_MEAN_Y ) , tBodyGyro_MEAN_Z =mean( tBodyGyro_MEAN_Z ) , tBodyGyro_STD_X =mean( tBodyGyro_STD_X ) , tBodyGyro_STD_Y =mean( tBodyGyro_STD_Y ) , tBodyGyro_STD_Z =mean( tBodyGyro_STD_Z ) , tBodyGyroJerk_MEAN_X =mean( tBodyGyroJerk_MEAN_X ) , tBodyGyroJerk_MEAN_Y =mean( tBodyGyroJerk_MEAN_Y ) , tBodyGyroJerk_MEAN_Z =mean( tBodyGyroJerk_MEAN_Z ) , tBodyGyroJerk_STD_X =mean( tBodyGyroJerk_STD_X ) , tBodyGyroJerk_STD_Y =mean( tBodyGyroJerk_STD_Y ) , tBodyGyroJerk_STD_Z =mean( tBodyGyroJerk_STD_Z ) , tBodyAccMag_MEAN =mean( tBodyAccMag_MEAN ) , tBodyAccMag_STD =mean( tBodyAccMag_STD ) , tGravityAccMag_MEAN =mean( tGravityAccMag_MEAN ) , tGravityAccMag_STD =mean( tGravityAccMag_STD ) , tBodyAccJerkMag_MEAN =mean( tBodyAccJerkMag_MEAN ) , tBodyAccJerkMag_STD =mean( tBodyAccJerkMag_STD ) , tBodyGyroMag_MEAN =mean( tBodyGyroMag_MEAN ) , tBodyGyroMag_STD =mean( tBodyGyroMag_STD ) , tBodyGyroJerkMag_MEAN =mean( tBodyGyroJerkMag_MEAN ) , tBodyGyroJerkMag_STD =mean( tBodyGyroJerkMag_STD ) , fBodyAcc_MEAN_X =mean( fBodyAcc_MEAN_X ) , fBodyAcc_MEAN_Y =mean( fBodyAcc_MEAN_Y ) , fBodyAcc_MEAN_Z =mean( fBodyAcc_MEAN_Z ) , fBodyAcc_STD_X =mean( fBodyAcc_STD_X ) , fBodyAcc_STD_Y =mean( fBodyAcc_STD_Y ) , fBodyAcc_STD_Z =mean( fBodyAcc_STD_Z ) , fBodyAcc_MEANFreq_X =mean( fBodyAcc_MEANFreq_X ) , fBodyAcc_MEANFreq_Y =mean( fBodyAcc_MEANFreq_Y ) , fBodyAcc_MEANFreq_Z =mean( fBodyAcc_MEANFreq_Z ) , fBodyAccJerk_MEAN_X =mean( fBodyAccJerk_MEAN_X ) , fBodyAccJerk_MEAN_Y =mean( fBodyAccJerk_MEAN_Y ) , fBodyAccJerk_MEAN_Z =mean( fBodyAccJerk_MEAN_Z ) , fBodyAccJerk_STD_X =mean( fBodyAccJerk_STD_X ) , fBodyAccJerk_STD_Y =mean( fBodyAccJerk_STD_Y ) , fBodyAccJerk_STD_Z =mean( fBodyAccJerk_STD_Z ) , fBodyAccJerk_MEANFreq_X =mean( fBodyAccJerk_MEANFreq_X ) , fBodyAccJerk_MEANFreq_Y =mean( fBodyAccJerk_MEANFreq_Y ) , fBodyAccJerk_MEANFreq_Z =mean( fBodyAccJerk_MEANFreq_Z ) , fBodyGyro_MEAN_X =mean( fBodyGyro_MEAN_X ) , fBodyGyro_MEAN_Y =mean( fBodyGyro_MEAN_Y ) , fBodyGyro_MEAN_Z =mean( fBodyGyro_MEAN_Z ) , fBodyGyro_STD_X =mean( fBodyGyro_STD_X ) , fBodyGyro_STD_Y =mean( fBodyGyro_STD_Y ) , fBodyGyro_STD_Z =mean( fBodyGyro_STD_Z ) , fBodyGyro_MEANFreq_X =mean( fBodyGyro_MEANFreq_X ) , fBodyGyro_MEANFreq_Y =mean( fBodyGyro_MEANFreq_Y ) , fBodyGyro_MEANFreq_Z =mean( fBodyGyro_MEANFreq_Z ) , fBodyAccMag_MEAN =mean( fBodyAccMag_MEAN ) , fBodyAccMag_STD =mean( fBodyAccMag_STD ) , fBodyAccMag_MEANFreq =mean( fBodyAccMag_MEANFreq ) , fBodyBodyAccJerkMag_MEAN =mean( fBodyBodyAccJerkMag_MEAN ) , fBodyBodyAccJerkMag_STD =mean( fBodyBodyAccJerkMag_STD ) , fBodyBodyAccJerkMag_MEANFreq =mean( fBodyBodyAccJerkMag_MEANFreq ) , fBodyBodyGyroMag_MEAN =mean( fBodyBodyGyroMag_MEAN ) , fBodyBodyGyroMag_STD =mean( fBodyBodyGyroMag_STD ) , fBodyBodyGyroMag_MEANFreq =mean( fBodyBodyGyroMag_MEANFreq ) , fBodyBodyGyroJerkMag_MEAN =mean( fBodyBodyGyroJerkMag_MEAN ) , fBodyBodyGyroJerkMag_STD =mean( fBodyBodyGyroJerkMag_STD ) , fBodyBodyGyroJerkMag_MEANFreq =mean( fBodyBodyGyroJerkMag_MEANFreq ))
 
-library(tidyr)
-library(dplyr)
 #reorder the column order in the set
 new_set <- new_set[,c(1,2,3,6,9,12,15,18,21,24,27,30,43,46,49,52,55,58,61,64,67,4,7,10,13,16,19,22,25,28,31,44,47,50,53,56,59,62,65,68,5,8,11,14,17,20,23,26,29,32,45,48,51,54,57,60,63,66,69,33,34,35,36,37,38,39,40,41,42,70,71,72,73,74,75,76,77,78,79,80,81)]
 #transform most of the column names to data in one column, descr
-changed_set <- gather(new_set,descr,measure,3:81)
+changed_set <- gather(new_set,descr,mean_grouped,3:81)
 #create column for X,Y,Z or all of them
 changed_set$dimension <- 'ALL'
 changed_set[grep('X',changed_set$descr),]$dimension <- 'X'
@@ -138,10 +139,10 @@ changed_set$descr <- gsub("_STD","",changed_set$descr)
 changed_set$typetime <- ''
 changed_set$typetime <- substr(changed_set$descr,1,1)
 #make a difference between Gyro and Acc
-changed_set$type_measure <- ''
-changed_set[grep('Gyro',changed_set$descr),]$type_measure <- 'Gyro'
+changed_set$type_number <- ''
+changed_set[grep('Gyro',changed_set$descr),]$type_number<- 'Gyro'
 changed_set$descr <- gsub("Gyro","",changed_set$descr)
-changed_set[grep('Acc',changed_set$descr),]$type_measure <- 'Acc'
+changed_set[grep('Acc',changed_set$descr),]$type_number <- 'Acc'
 changed_set$descr <- gsub("Acc","",changed_set$descr)
 #body versus gravity measurement
 changed_set$body_vs_gravity <- ''
